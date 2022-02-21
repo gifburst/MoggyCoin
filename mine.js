@@ -1,30 +1,7 @@
-/*
- * Written by Jean-Luc Cooke <jlcooke@certainkey.com>
- * Implements HashCash v1
- * 
- * The goal of this JavaScript is for Web-based email sites to leverage HashCash techolgoies
- */
 
-/* if set to true, JavaScript SHA1 implementation will be used only.
- *  Otherwise, the code below will ry to use the applet, and fall-back to the JavaScript
- *  code if applet cannot be loaded
- */
 var hashcashv1_jsonly = false;
 
-/*
- * Creates a hashcash token with DP of "bits" zero bits
- * in a seperate thread, function "callback" will be called with the desired token:
- *  function myCompleteCallback(tokenResult) {
- *     ... do stuff with tokenResult ...
- *  }
- *  function myUpdateCallback(percentCompleteEstimate) {
- *     ... do stuff with percentCompleteEstimate ...
- *     ... value may be greater then 100, or less.  But
- *         statistically we expect it to complete once we reach 100 ...
- *  }
- *  // Asynchonous operation!
- *  hashcashv1_create('myCallback', 'jdoe@isp.com', 16);
- */
+
 function hashcashv1_create(updateCallback, completeCallback, str, extn, bits) {
   setTimeout("hashcashv1_create_hidden('"+ updateCallback+"','"+completeCallback+"','"+str+"','"+ extn +"','"+ bits +"');", 100);
 }
@@ -119,7 +96,7 @@ function hashcashv1_selftest() {
   var res = calcSHA1("abc");
   // a9993e36 4706816a ba3e2571 7850c26c 9cd0d89d
   if (hex(res).indexOf("a9993e36") != 0) {
-    alert("HashCashv1 Self test FAILED! res="+ hex(res) +" correct="+ hex(0xa9993e36));
+    alert("KevCoin Self test FAILED! res="+ hex(res) +" correct="+ hex(0xa9993e36));
   }
 }
 
@@ -128,7 +105,6 @@ hashcashv1_appptr = null;
 function calcSHA1(str) {
   if (hashcashv1_appptr == null  &&  !hashcashv1_jsonly) {
     if ((hashcashv1_appptr=document.applets["hashcashv1_applet"]) == null || hashcashv1_appptr.test == null) {
-      alert("Could not load the HashCash-version-1 applet!!!  Falling back to JavaScript-only mode.");
       hashcashv1_jsonly = true;
     }
   }
