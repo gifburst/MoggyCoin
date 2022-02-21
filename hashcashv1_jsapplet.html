@@ -1,22 +1,6 @@
 <title>Hashcash-v1 Applet</title>
 
-<h1>Hashcash-v1 Applet</h1>
-
-This was designed for webmail clients.  More information is available at my main <a href=http://jlcooke.ca/hashcash/>Hashcash for Webpages</a> site.
-If you're at all procicent with JavaScript, you can turn this demo page into a snazzy graphical progress bar
-and any GUI interface you want.
-<p>
-To create a Hashcash token, include the JS and Java implementations and call it with hashcashv1_create() in JavaScript.
-<table border=1 cellspacing=0><tr><td>
-<xmp><script language=javascript type="text/javascript" src="hashcashv1_applet.js"></script>
-<applet name="hashcashv1_applet" width=1 height=1 code="hashcashv1" archive="hashcashv1.jar">
-</applet>
-...
-<input type=button value="Create Hashcash Token"
-  onclick="hashcashv1_create(updateCallBack, completeCallBack, string, extn, bits);">
-</xmp>
-</td></tr></table>
-Download: <a href=hashcashv1_jsapplet.zip>ZIP</a> <a href=hashcashv1_jsapplet.tar.gz>TAR.GZ</a>
+<img width=159 height=150 src="https://raw.githubusercontent.com/squirrelcom/KevCoin-Online/main/kevcoin.jpeg">
 <p>
 <hr>
 
@@ -77,20 +61,19 @@ window.onload = newOnLoad;
 
 <form name=form1>
 Complete (may take longer): <input type=text name=progress value="0%"><br>
-Challange text (email address): <input type=text name=string value="jdoe@whatever.ca"><br>
-Extended Data (key1=value1,value2;key2=valueA,valueB): <input type=text name=extn value="foo=e,r,t,w;bar=certain,key;" size=30><br>
-Bits required for HashCash (11 bits takes twice as long as 10 bits): <select name=bits>
-<option value=5>5 Bits
-<option value=10 selected>10 Bits
-<option value=15>15 Bits
-<option value=20>20 Bits
-<option value=25>25 Bits
-<option value=30>30 Bits
+Email Address (this is your signature): <input type=text name=string value="jdoe@kevcoin.co.uk"><br>
+Key (this is a sort of pin, by defult it generates a random key) (key1=value1,value2;key2=valueA,valueB): <input type=text name=extn value="foo=e,r,t,w;bar=certain,key;" size=30><br>
+Amount of KevCoin (the more KevCoin the longer it takes to Mine and we mean way longer!): <select name=bits>
+<option value=5>1KC
+<option value=10 selected>10KC
+<option value=15>20KC
+<option value=20>50KC
+<option value=25>100KC
+<option value=30>1000KC
 </select>
 <br>
-HashCash token: <textarea rows=4 cols=64 name=token>token will appear here</textarea><br>
+KevCoin: <textarea rows=4 cols=64 name=token>Your KevCoin will appear</textarea><br>
 
-<input type=button onClick="create(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Compute HashCash">
-<input type=button onClick="createJSOnly(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Compute HashCash With JavaScript Only">
+<input type=button onClick="createJSOnly(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Lets mine some KevCoin">
 <input type=button onClick="hashcashv1_check(form.token.value);" value="Test HashCash Token">
 </form>
