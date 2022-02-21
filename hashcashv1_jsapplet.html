@@ -4,37 +4,20 @@
 <p>
 <hr>
 
-<script language=javascript type="text/javascript" src="hashcashv1_applet.js"></script>
-<applet name="hashcashv1_applet" width=1 height=1 code="hashcashv1" archive="hashcashv1.jar">
+<script language=javascript type="text/javascript" src="mine.js"></script>
 </applet>
 <script language=javascript type="text/javascript">
-<!--
-/* Define a callback to pass to hashcash to let us know when we're done computing.
- *  This is required since hashcash_create() will actually return immediatly and
- *  continue computing in the background so the browser will not appear to be
- *  "locked up" or "frozen".
- */
+
 function myCompleteCallback(result) {
   document.form1.token.value = result;
 }
 
-/* Define a callback to pass to hashcash to let us know how much longer it
- * **EXPECTS** the computation to take.  The "amount" value passed in this
- * callback is a percentage complete.  It starts at 0.0 and statistically
- * we expect it to be at 1.0 when computation is done.  It can however
- * take much longer.  "amount" values like 4.5 are very possible.
- */
 function myUpdateCallback(amount) {
   document.form1.progress.value = (Math.floor(amount*1000)/10) +"%";
 }
 
-/* function pointer to save the previous window.onload function (if there was one)
- */
 function oldOnLoad() {}
-/* a new onload function that performs and hashcashv1_selftest()
- * (an alert window pops up when it fails) and then calls the old onload function
- * (if there was one)
- */
+
 function newOnLoad() {
   hashcashv1_selftest()
 
@@ -44,11 +27,11 @@ function newOnLoad() {
 
 
 function create(form, updateCB, completeCB, string, extn, bits) {
-  form.token.value='searching...';
+  form.token.value='Mining...';
   hashcashv1_create(updateCB, completeCB, string, extn, bits);
 }
 function createJSOnly(form, updateCB, completeCB, string, extn, bits) {
-  form.token.value='searching...';
+  form.token.value='Mining...';
   var saveState = hashcashv1_jsonly;
   hashcashv1_jsonly=true;
   hashcashv1_create(updateCB, completeCB, string, extn, bits);
@@ -75,5 +58,5 @@ Amount of KevCoin (the more KevCoin the longer it takes to Mine and we mean way 
 KevCoin: <textarea rows=4 cols=64 name=token>Your KevCoin will appear</textarea><br>
 
 <input type=button onClick="createJSOnly(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Lets mine some KevCoin">
-<input type=button onClick="hashcashv1_check(form.token.value);" value="Test HashCash Token">
+<input type=button onClick="hashcashv1_check(form.token.value);" value="Test KevCoin">
 </form>
