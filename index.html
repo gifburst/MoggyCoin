@@ -1,29 +1,20 @@
 <title>KevCoin</title>
 
-<img width=159 height=159 src="https://raw.githubusercontent.com/squirrelcom/KevCoin-Online/main/kevcoin.jpeg">
-<h1>KevCoin (KC)</h1>
+<img width=159 height=159 src="https://raw.githubusercontent.com/squirrelcom/MoggyCoin/main/MoggyCoin.jpeg">
+<h1>MoggyCoin (MC)</h1>
 
 <pre>
-How are KevCoins Laid out?
-ver: KevCoin version 1
-bits: Number of bits in the hashed code. (Certain bits convert to certain values of KevCoin)
+Lolcats, Fun and Currency
+
+How are MoggyCoins Laid out?
+ver: MoggyCoin version 1
+val: Value of the MoggyCoin
 date: The time that the message was sent, in the format YYMMDD[hhmm[ss].
 sig: Your chosen signature to validate the coin in your name (if you have recived a coin change the sig and key to yours)
 key: Your key is a sort of pin to verify its you
 rand: String of random characters, encoded in base-64 format.
 counter: Binary counter, encoded in base-64 format.
 </pre
-
-<p>Bits to KevCoin (KC)</p>
-
-<pre>
-5 bits = 1KC
-10 bits = 10KC
-15 bits = 20KC
-20 bits = 30KC
-25 bits = 50KC
-30 bits = 100KC
-</pre>
 <p>
 <hr>
 
@@ -67,20 +58,20 @@ window.onload = newOnLoad;
 
 <form name=form1>
 Complete (may take longer): <input type=text name=progress value="0%"><br>
-Signature ( Your Name first letter of your last name and @kevcoin): <input type=text name=string value="johnd@kevcoin"><br>
+Signature ( Your Name first letter of your last name and @moggycoin): <input type=text name=string value="johnd@moggycoin"><br>
 Key (this is a sort of pin, by defult it just fills the space. Replace the values with numbers onr letter) (key1=value1,value2;key2=valueA,valueB): <input type=text name=extn value="foo=e,r,t,w;bar=certain,key;" size=30><br>
-Amount of KevCoin (the more KevCoin the longer it takes to Mine and we mean way longer!): <select name=bits>
-<option value=1 selected>1KC
-<option value=10>10KC
-<option value=20>20KC
-<option value=30>30KC
-<option value=50>50KC
-<option value=100>100KC
+Amount of MoggyCoin (the more MoggyCoin the longer it takes to Mine and we mean way longer!): <select name=bits>
+<option value=001 selected>0.01MC
+<option value=01>0.1MC
+<option value=20>10MC
+<option value=30>20MC
+<option value=50>50MC
+<option value=100>100MC
 </select>
 <br>
-KevCoin: <textarea rows=4 cols=64 name=token>Your KevCoin will appear here. You can paste an already Mined coin here and then click Test KevCoin to see its details and Value</textarea><br>
+KevCoin: <textarea rows=4 cols=64 name=token>Your MoggyCoin will appear here. You can paste an already Mined coin here and then click Test MoggyCoin to see its details and Value</textarea><br>
 
-<input type=button onClick="createJSOnly(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Lets mine some KevCoin">
-<input type=button onClick="hashcashv1_check(form.token.value);" value="Test KevCoin">
+<input type=button onClick="createJSOnly(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Mine Sum Coins">
+<input type=button onClick="hashcashv1_check(form.token.value);" value="Test MoggyCoin">
 </form>
-<center><font size="-1">Copyright © 2022, 23 Squirrel Enterprises, KevCoin, Kevin and Adam</font></center>
+<center><font size="-1">Copyright © 2022, 23 Squirrel Enterprises, MoggyCoin, and Adam</font></center>
