@@ -46,7 +46,7 @@ function hashcashv1_create_loop(updateCallback, str, extn, bits) {
   var min = d.getMinutes();
   var random = (new Number(Math.floor(Math.random() * 4294967296))).toString(16) +
                (new Number(Math.floor(Math.random() * 4294967296))).toString(16);
-  var fiddle = new Number(1);
+  var fiddle = new Number(0.1);
   var input;
   var k = 0, tot = 1 << bits;
   var result = -1;
