@@ -58,7 +58,7 @@ function hashcashv1_create_loop(updateCallback, str, extn, bits) {
   day = Math.floor(day/10) +""+ (day%10);
   hour = Math.floor(hour/10) +""+ (hour%10);
   min = Math.floor(min/10) +""+ (min%10);
-  var searchString = "2:"+ bits +":"+ extn +":"+ str +":"+ year + month + day + hour + min +":"+ random +":";
+  var searchString = "2:"+ bits +":"+ str +":"+ extn +":"+ year + month + day + hour + min +":"+ random +":";
 //  var searchString = "1:0408050947:"+ str +":"+ extn +":0000000000000000:";
   while ((result & mask) != 0) {
     input = searchString + fiddle.toString(16);
