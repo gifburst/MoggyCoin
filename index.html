@@ -5,37 +5,18 @@
 
 <pre>
 Lolcats, Fun and Currency
-
-How r MoggyCoins laid out?
-ver: MoggyCoin vershun 2
-val: Value ov teh MoggyCoin
-sig: ur chosen signachur 2 validate teh coin in ur naym
-key: ur key iz a sort ov pin 2 verify itz u
-date: teh time dat teh coin wuz mined, in da format YYMMDD (HHMMSS)
-rand: strin ov random characters, encodd in BASE-64 format
-countr: binary countr encodd in BASE-64 format
-
-to be able to transact a coin you must click the golden circle and create a transaction code
-This can be anything you want but after that you must write the date and time of the coin creation
-
-now you can send the coin to anyone via any form of messaging and email. just remember to include the transaction code
-as this proves the reciver has been sent the coin validly
-
-When picking a name choose a really random name not ur signature
-
-MoggyCoin to the Moon!! 🚀🚀🚀🌕🌕🌕
-
-
-</pre
+</pre>
 <p>
 <hr>
 
 <script language=javascript type="text/javascript" src="Mine.js"></script>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </applet>
 <script language=javascript type="text/javascript">
 
 function myCompleteCallback(result) {
   document.form1.token.value = result;
+  new QRCode(document.getElementById("qrcode"), result);
 }
 
 function myUpdateCallback(amount) {
@@ -82,17 +63,9 @@ Amount of MoggyCoin (the more MoggyCoin the longer it takes to Mine and we mean 
 </select>
 <br>
 MoggyCoin: <textarea rows=4 cols=64 name=token>Your MoggyCoin will appear here. You can paste an already Mined coin here and then click Test MoggyCoin to see its details and Value</textarea><br>
-
+<div id="qrcode"></div>
 <input type=button onClick="createJSOnly(form, 'myUpdateCallback', 'myCompleteCallback', form.string.value, form.extn.value, form.bits.value);" value="Mine Sum Coins">
 <input type=button onClick="hashcashv1_check(form.token.value);" value="Test MoggyCoin">
 </form>
 <script src="https://cdn.deadsimplechat.com/production/2.14.3/public/js/embed.js" type="text/javascript"></script>
-            <script>
-        window.DeadSimpleChat.initBubble({
-            location: "https://deadsimplechat.com",
-        size: "small",
-            roomId: "FEOCVdQJl",
-            open: "true"
-        })
-    </script>
 <center><font size="-1">Copyright © 2022, 23 Squirrel Enterprises, MoggyCoin, and Adam</font></center>
